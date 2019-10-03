@@ -82,10 +82,14 @@ const uint8_t PongMsg[] = "PONG";
 uint16_t BufferSize = BUFFER_SIZE;
 uint8_t Buffer[BUFFER_SIZE];
 
-States_t State = LOWPOWER;
+uint8_t BufferSPI[BUFFER_SIZE];
+
+States_t State = RX;
 
 int8_t RssiValue = 0;
 int8_t SnrValue = 0;
+
+extern SPI_HandleTypeDef hspi1;
 
 /* Private function prototypes -----------------------------------------------*/
 /*!
@@ -127,10 +131,13 @@ static void OnledEvent( void );
  */
 int main( void )
 {
-  bool isMaster = true;
+  bool isMaster = false;
   uint8_t i;
 
   HAL_Init( );
+
+  SPI_Init(&hspi1);
+  SPI1_Init();
 
   SystemClock_Config( );
 
@@ -145,9 +152,6 @@ int main( void )
 
   Radio.SetChannel( RF_FREQUENCY );
 
-
-#if defined( USE_MODEM_LORA )
-
   Radio.SetTxConfig( MODEM_LORA, TX_OUTPUT_POWER, 0, LORA_BANDWIDTH,
                                  LORA_SPREADING_FACTOR, LORA_CODINGRATE,
                                    LORA_PREAMBLE_LENGTH, LORA_FIX_LENGTH_PAYLOAD_ON,
@@ -158,23 +162,9 @@ int main( void )
                                    LORA_SYMBOL_TIMEOUT, LORA_FIX_LENGTH_PAYLOAD_ON,
                                    0, true, 0, 0, LORA_IQ_INVERSION_ON, true );
 
-#elif defined( USE_MODEM_FSK )
-
-  Radio.SetTxConfig( MODEM_FSK, TX_OUTPUT_POWER, FSK_FDEV, 0,
-                                  FSK_DATARATE, 0,
-                                  FSK_PREAMBLE_LENGTH, FSK_FIX_LENGTH_PAYLOAD_ON,
-                                  true, 0, 0, 0, 3000000 );
-
-  Radio.SetRxConfig( MODEM_FSK, FSK_BANDWIDTH, FSK_DATARATE,
-                                  0, FSK_AFC_BANDWIDTH, FSK_PREAMBLE_LENGTH,
-                                  0, FSK_FIX_LENGTH_PAYLOAD_ON, 0, true,
-                                  0, 0,false, true );
-
-#else
-    #error "Please define a frequency band in the compiler options."
-#endif
-
   Radio.Rx( RX_TIMEOUT_VALUE );
+
+  HAL_SPI_TransmitReceive(&hspi1, "HOLA", (uint8_t *)BufferSPI, 7, 5000);
 
   while( 1 )
   {
