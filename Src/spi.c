@@ -19,11 +19,7 @@ void SPI_Init(SPI_HandleTypeDef* hspi)
 {
 
   GPIO_InitTypeDef GPIO_InitStruct;
-  if(hspi->Instance==SPI1)
-  {
-  /* USER CODE BEGIN SPI1_MspInit 0 */
 
-  /* USER CODE END SPI1_MspInit 0 */
     /* Peripheral clock enable */
     __SPI1_CLK_ENABLE();
 
@@ -45,15 +41,6 @@ void SPI_Init(SPI_HandleTypeDef* hspi)
     GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /* USER CODE BEGIN SPI1_MspInit 1 */
-
-  /* USER CODE END SPI1_MspInit 1 */
-  }
-  else if(hspi->Instance==SPI2)
-  {
-  /* USER CODE BEGIN SPI2_MspInit 0 */
-
-  /* USER CODE END SPI2_MspInit 0 */
     /* Peripheral clock enable */
     __SPI2_CLK_ENABLE();
 
@@ -75,15 +62,7 @@ void SPI_Init(SPI_HandleTypeDef* hspi)
     GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /* USER CODE BEGIN SPI2_MspInit 1 */
 
-  /* USER CODE END SPI2_MspInit 1 */
-  }
-  else if(hspi->Instance==SPI4)
-  {
-  /* USER CODE BEGIN SPI4_MspInit 0 */
-
-  /* USER CODE END SPI4_MspInit 0 */
     /* Peripheral clock enable */
     __SPI4_CLK_ENABLE();
 
@@ -105,10 +84,6 @@ void SPI_Init(SPI_HandleTypeDef* hspi)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
-  /* USER CODE BEGIN SPI4_MspInit 1 */
-
-  /* USER CODE END SPI4_MspInit 1 */
-  }
 
 }
 
@@ -202,13 +177,13 @@ void SPI2_Init(void)
 {
 
   hspi2.Instance = SPI2;
-  hspi2.Init.Mode = SPI_MODE_MASTER;
+  hspi2.Init.Mode = SPI_MODE_SLAVE;
   hspi2.Init.Direction = SPI_DIRECTION_2LINES;
   hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
   hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi2.Init.NSS = SPI_NSS_HARD_INPUT;
-  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi2.Init.NSS = SPI_NSS_SOFT; //SPI_NSS_HARD_INPUT
+  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi2.Init.TIMode = SPI_TIMODE_DISABLED;
   hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
