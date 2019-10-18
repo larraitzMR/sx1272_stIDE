@@ -211,13 +211,13 @@ void SPI4_Init(void)
   HAL_SPI_Init(&hspi4);
 }
 
-uint16_t SpiInOut( Spi_t *obj, uint16_t outData )
-{
-	char buff[50];
-    /* Send SPIy data */
-    HAL_SPI_Transmit(&hspi1, outData, sizeof(outData), 1000);
-    while( HAL_SPI_GetState(&hspi1)  == HAL_SPI_STATE_RESET);
-    return HAL_SPI_Receive(&hspi1, buff, sizeof(buff), 1000);
-}
+//uint16_t SpiInOut( Spi_t *obj, uint16_t outData )
+//{
+//	char buff[50];
+//    /* Send SPIy data */
+//    HAL_SPI_Transmit(&hspi1, outData, sizeof(outData), 1000);
+//    while( HAL_SPI_GetState(&hspi1)  == HAL_SPI_STATE_RESET);
+//    return HAL_SPI_Receive(&hspi1, buff, sizeof(buff), 1000);
+//}
 
 #endif /* SPI_C_ */

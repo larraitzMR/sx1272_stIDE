@@ -3,4 +3,3 @@ spi.c:90:6:SPI_DeInit	16	static
 spi.c:156:6:SPI1_Init	8	static
 spi.c:176:6:SPI2_Init	8	static
 spi.c:196:6:SPI4_Init	8	static
-spi.c:214:10:SpiInOut	72	static

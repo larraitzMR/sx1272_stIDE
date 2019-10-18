@@ -1,5 +1,5 @@
-Lora/Phy/sx1272/sx1272.o: ../Lora/Phy/sx1272/sx1272.c \
- ../Lora/Utilities/utilities.h ../Inc/includes.h \
+Lora/Phy/sx1272/sx1272.o: ../Lora/Phy/sx1272/sx1272.c ../Inc/hw.h \
+ ../Inc/hw_conf.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h \
  ../Drivers/CMSIS/Include/core_cm4.h \
@@ -26,17 +26,17 @@ Lora/Phy/sx1272/sx1272.o: ../Lora/Phy/sx1272/sx1272.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/config.h \
- ../Inc/gpio.h ../Lora/Mac/timer.h ../Lora/Utilities/timeServer.h \
- ../Lora/Utilities/utilities.h ../Lora/Phy/radio.h \
- ../Lora/Utilities/delay.h ../Lora/Phy/sx1272/sx1272.h ../Inc/gpio.h \
- ../Inc/spi.h ../Inc/includes.h ../Lora/Phy/sx1272/sx1272Regs-Fsk.h \
- ../Lora/Phy/sx1272/sx1272Regs-LoRa.h ../Inc/lora_init.h \
- ../Lora/Phy/sx1272/sx1272.h
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ ../Inc/hw_gpio.h ../Inc/hw_spi.h ../Inc/hw_rtc.h \
+ ../Lora/Utilities/utilities.h ../Inc/includes.h ../Inc/config.h \
+ ../Inc/gpio.h ../Inc/debug.h ../Inc/includes.h ../Lora/Phy/radio.h \
+ ../Lora/Phy/sx1272/sx1272.h ../Lora/Phy/sx1272/sx1272Regs-Fsk.h \
+ ../Lora/Phy/sx1272/sx1272Regs-LoRa.h ../Lora/Utilities/timeServer.h \
+ ../Lora/Utilities/utilities.h
 
-../Lora/Utilities/utilities.h:
+../Inc/hw.h:
 
-../Inc/includes.h:
+../Inc/hw_conf.h:
 
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 
@@ -92,32 +92,32 @@ Lora/Phy/sx1272/sx1272.o: ../Lora/Phy/sx1272/sx1272.c \
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
+../Inc/hw_gpio.h:
+
+../Inc/hw_spi.h:
+
+../Inc/hw_rtc.h:
+
+../Lora/Utilities/utilities.h:
+
+../Inc/includes.h:
+
 ../Inc/config.h:
 
 ../Inc/gpio.h:
 
-../Lora/Mac/timer.h:
+../Inc/debug.h:
 
-../Lora/Utilities/timeServer.h:
-
-../Lora/Utilities/utilities.h:
+../Inc/includes.h:
 
 ../Lora/Phy/radio.h:
 
-../Lora/Utilities/delay.h:
-
 ../Lora/Phy/sx1272/sx1272.h:
-
-../Inc/gpio.h:
-
-../Inc/spi.h:
-
-../Inc/includes.h:
 
 ../Lora/Phy/sx1272/sx1272Regs-Fsk.h:
 
 ../Lora/Phy/sx1272/sx1272Regs-LoRa.h:
 
-../Inc/lora_init.h:
+../Lora/Utilities/timeServer.h:
 
-../Lora/Phy/sx1272/sx1272.h:
+../Lora/Utilities/utilities.h:
