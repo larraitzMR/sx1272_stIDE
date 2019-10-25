@@ -1,4 +1,4 @@
-Lora/Core/lora.o: ../Lora/Core/lora.c ../Inc/includes.h \
+Lora/Core/lora.o: ../Lora/Core/lora.c ../Inc/hw.h ../Inc/hw_conf.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h \
  ../Drivers/CMSIS/Include/core_cm4.h \
@@ -25,13 +25,17 @@ Lora/Core/lora.o: ../Lora/Core/lora.c ../Inc/includes.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/config.h \
- ../Inc/gpio.h ../Lora/Utilities/timeServer.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ ../Inc/hw_gpio.h ../Inc/hw_spi.h ../Inc/hw_rtc.h \
+ ../Lora/Utilities/utilities.h ../Inc/includes.h ../Inc/config.h \
+ ../Inc/debug.h ../Inc/includes.h ../Lora/Utilities/timeServer.h \
  ../Lora/Utilities/utilities.h ../Lora/Mac/LoRaMac.h ../Lora/Core/lora.h \
  ../Inc/Comissioning.h ../Lora/Mac/region/Region.h \
  ../Lora/Mac/LoRaMacTest.h
 
-../Inc/includes.h:
+../Inc/hw.h:
+
+../Inc/hw_conf.h:
 
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 
@@ -87,9 +91,21 @@ Lora/Core/lora.o: ../Lora/Core/lora.c ../Inc/includes.h \
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
+../Inc/hw_gpio.h:
+
+../Inc/hw_spi.h:
+
+../Inc/hw_rtc.h:
+
+../Lora/Utilities/utilities.h:
+
+../Inc/includes.h:
+
 ../Inc/config.h:
 
-../Inc/gpio.h:
+../Inc/debug.h:
+
+../Inc/includes.h:
 
 ../Lora/Utilities/timeServer.h:
 

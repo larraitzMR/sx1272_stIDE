@@ -48,3 +48,61 @@
 
 #define RADIO_ANT_SWITCH_PORT_TX_RFO              GPIOC //CRF2
 #define RADIO_ANT_SWITCH_PIN_TX_RFO               GPIO_PIN_2
+
+/*  SPI MACRO redefinition */
+
+#define SPI_CLK_ENABLE()                __HAL_RCC_SPI1_CLK_ENABLE()
+
+#define SPI1_AF                          GPIO_AF0_SPI1
+
+/* ADC MACRO redefinition */
+
+#ifdef USE_STM32L0XX_NUCLEO
+#define ADC_READ_CHANNEL                 ADC_CHANNEL_4
+#define ADCCLK_ENABLE()                 __HAL_RCC_ADC1_CLK_ENABLE() ;
+#define ADCCLK_DISABLE()                __HAL_RCC_ADC1_CLK_DISABLE() ;
+#endif
+
+
+/* --------------------------- RTC HW definition -------------------------------- */
+
+#define RTC_OUTPUT       DBG_RTC_OUTPUT
+
+#define RTC_Alarm_IRQn              RTC_IRQn
+/* --------------------------- USART HW definition -------------------------------*/
+#define USARTx                           USART2
+#define USARTx_CLK_ENABLE()              __USART2_CLK_ENABLE();
+#define USARTx_RX_GPIO_CLK_ENABLE()      __GPIOA_CLK_ENABLE()
+#define USARTx_TX_GPIO_CLK_ENABLE()      __GPIOA_CLK_ENABLE()
+#define DMAx_CLK_ENABLE()                __HAL_RCC_DMA1_CLK_ENABLE()
+
+#define USARTx_FORCE_RESET()             __USART2_FORCE_RESET()
+#define USARTx_RELEASE_RESET()           __USART2_RELEASE_RESET()
+
+
+#define USARTx_TX_PIN                  GPIO_PIN_2
+#define USARTx_TX_GPIO_PORT            GPIOA
+#define USARTx_RX_PIN                  GPIO_PIN_3
+#define USARTx_RX_GPIO_PORT            GPIOA
+
+/* Definition for USARTx's NVIC */
+#define USARTx_IRQn                      USART2_IRQn
+#define USARTx_IRQHandler                USART2_IRQHandler
+
+
+/* Definition for USARTx's DMA Request */
+#define USARTx_TX_DMA_REQUEST             DMA_REQUEST_4
+
+#define USARTx_Priority 0
+#define USARTx_DMA_Priority 0
+
+#define LED_Toggle( x )
+#define LED_On( x )
+#define LED_Off( x )
+
+#ifdef __cplusplus
+}
+#endif
+
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+

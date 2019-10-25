@@ -50,4 +50,5 @@
 "Src/sysmem.o"
 "Src/system_stm32f4xx.o"
 "Src/uart.o"
+"Src/vcom.o"
 "Startup/startup_stm32f411vetx.o"

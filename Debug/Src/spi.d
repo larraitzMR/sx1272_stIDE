@@ -26,7 +26,7 @@ Src/spi.o: ../Src/spi.c ../Inc/includes.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/config.h \
- ../Inc/gpio.h ../Inc/spi.h ../Inc/includes.h
+ ../Inc/spi.h ../Inc/includes.h
 
 ../Inc/includes.h:
 
@@ -85,8 +85,6 @@ Src/spi.o: ../Src/spi.c ../Inc/includes.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
 ../Inc/config.h:
-
-../Inc/gpio.h:
 
 ../Inc/spi.h:
 

@@ -27,8 +27,7 @@ Lora/Utilities/timeServer.o: ../Lora/Utilities/timeServer.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/config.h \
- ../Inc/gpio.h ../Lora/Utilities/timeServer.h \
- ../Lora/Utilities/utilities.h
+ ../Lora/Utilities/timeServer.h ../Lora/Utilities/utilities.h
 
 ../Inc/includes.h:
 
@@ -87,8 +86,6 @@ Lora/Utilities/timeServer.o: ../Lora/Utilities/timeServer.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
 ../Inc/config.h:
-
-../Inc/gpio.h:
 
 ../Lora/Utilities/timeServer.h:
 

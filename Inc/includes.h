@@ -15,7 +15,7 @@
 //#include "stm32f4xx_hal_conf.h" (ya está incluido en stm32f4xx_hal.h)
 #include "stm32f4xx_hal.h"
 #include "config.h"
-#include "gpio.h"
+//#include "gpio.h"
 
 
 #endif /* INCLUDES_H_ */

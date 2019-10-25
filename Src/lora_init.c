@@ -62,6 +62,7 @@ Maintainer: Miguel Luis and Gregory Cristian
  */
 static bool RadioIsActive = false;
 
+#define IRQ_HIGH_PRIORITY  0
 //static void SX1272AntSwInit( void );
 //
 //static void SX1272AntSwDeInit( void );

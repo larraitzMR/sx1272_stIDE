@@ -27,8 +27,8 @@ Lora/Mac/LoRaMacCrypto.o: ../Lora/Mac/LoRaMacCrypto.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/config.h \
- ../Inc/gpio.h ../Lora/Crypto/aes.h ../Lora/Crypto/cmac.h \
- ../Lora/Crypto/aes.h ../Lora/Mac/LoRaMacCrypto.h
+ ../Lora/Crypto/aes.h ../Lora/Crypto/cmac.h ../Lora/Crypto/aes.h \
+ ../Lora/Mac/LoRaMacCrypto.h
 
 ../Lora/Utilities/utilities.h:
 
@@ -89,8 +89,6 @@ Lora/Mac/LoRaMacCrypto.o: ../Lora/Mac/LoRaMacCrypto.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
 ../Inc/config.h:
-
-../Inc/gpio.h:
 
 ../Lora/Crypto/aes.h:
 

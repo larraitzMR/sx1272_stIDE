@@ -28,7 +28,7 @@ Lora/Mac/region/RegionCommon.o: ../Lora/Mac/region/RegionCommon.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/config.h \
- ../Inc/gpio.h ../Lora/Utilities/utilities.h ../Lora/Mac/LoRaMac.h \
+ ../Lora/Utilities/utilities.h ../Lora/Mac/LoRaMac.h \
  ../Lora/Mac/region/RegionCommon.h
 
 ../Lora/Mac/timer.h:
@@ -94,8 +94,6 @@ Lora/Mac/region/RegionCommon.o: ../Lora/Mac/region/RegionCommon.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
 ../Inc/config.h:
-
-../Inc/gpio.h:
 
 ../Lora/Utilities/utilities.h:
 

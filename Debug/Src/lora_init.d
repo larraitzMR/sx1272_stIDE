@@ -26,10 +26,10 @@ Src/lora_init.o: ../Src/lora_init.c ../Inc/includes.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/config.h \
- ../Inc/gpio.h ../Lora/Phy/radio.h ../Inc/lora_init.h \
- ../Lora/Phy/sx1272/sx1272.h ../Lora/Phy/sx1272/sx1272Regs-Fsk.h \
- ../Lora/Phy/sx1272/sx1272Regs-LoRa.h ../Lora/Utilities/delay.h \
- ../Lora/Utilities/timeServer.h ../Lora/Utilities/utilities.h
+ ../Lora/Phy/radio.h ../Inc/lora_init.h ../Lora/Phy/sx1272/sx1272.h \
+ ../Lora/Phy/sx1272/sx1272Regs-Fsk.h ../Lora/Phy/sx1272/sx1272Regs-LoRa.h \
+ ../Lora/Utilities/delay.h ../Lora/Utilities/timeServer.h \
+ ../Lora/Utilities/utilities.h
 
 ../Inc/includes.h:
 
@@ -88,8 +88,6 @@ Src/lora_init.o: ../Src/lora_init.c ../Inc/includes.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
 ../Inc/config.h:
-
-../Inc/gpio.h:
 
 ../Lora/Phy/radio.h:
 

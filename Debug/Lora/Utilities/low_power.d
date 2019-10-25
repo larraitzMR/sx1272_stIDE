@@ -27,7 +27,7 @@ Lora/Utilities/low_power.o: ../Lora/Utilities/low_power.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h ../Inc/config.h \
- ../Inc/gpio.h ../Lora/Utilities/low_power.h
+ ../Lora/Utilities/low_power.h
 
 ../Inc/includes.h:
 
@@ -86,7 +86,5 @@ Lora/Utilities/low_power.o: ../Lora/Utilities/low_power.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
 ../Inc/config.h:
-
-../Inc/gpio.h:
 
 ../Lora/Utilities/low_power.h:

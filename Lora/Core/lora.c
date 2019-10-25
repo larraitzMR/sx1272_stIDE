@@ -21,37 +21,37 @@ Maintainer: Miguel Luis, Gregory Cristian and Wael Guibene
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics International N.V. 
+  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics International N.V.
   * All rights reserved.</center></h2>
   *
-  * Redistribution and use in source and binary forms, with or without 
+  * Redistribution and use in source and binary forms, with or without
   * modification, are permitted, provided that the following conditions are met:
   *
-  * 1. Redistribution of source code must retain the above copyright notice, 
+  * 1. Redistribution of source code must retain the above copyright notice,
   *    this list of conditions and the following disclaimer.
   * 2. Redistributions in binary form must reproduce the above copyright notice,
   *    this list of conditions and the following disclaimer in the documentation
   *    and/or other materials provided with the distribution.
-  * 3. Neither the name of STMicroelectronics nor the names of other 
-  *    contributors to this software may be used to endorse or promote products 
+  * 3. Neither the name of STMicroelectronics nor the names of other
+  *    contributors to this software may be used to endorse or promote products
   *    derived from this software without specific written permission.
-  * 4. This software, including modifications and/or derivative works of this 
+  * 4. This software, including modifications and/or derivative works of this
   *    software, must execute solely and exclusively on microcontroller or
   *    microprocessor devices manufactured by or for STMicroelectronics.
-  * 5. Redistribution and use of this software other than as permitted under 
-  *    this license is void and will automatically terminate your rights under 
-  *    this license. 
+  * 5. Redistribution and use of this software other than as permitted under
+  *    this license is void and will automatically terminate your rights under
+  *    this license.
   *
-  * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS" 
-  * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
-  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+  * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS"
+  * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT
+  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
   * PARTICULAR PURPOSE AND NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY
-  * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT 
+  * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT
   * SHALL STMICROELECTRONICS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
   * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-  * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
-  * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
-  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+  * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+  * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
   * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
   * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
@@ -59,7 +59,7 @@ Maintainer: Miguel Luis, Gregory Cristian and Wael Guibene
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "includes.h"
+#include "hw.h"
 #include "timeServer.h"
 #include "LoRaMac.h"
 #include "lora.h"
@@ -82,7 +82,7 @@ Maintainer: Miguel Luis, Gregory Cristian and Wael Guibene
 
 #define USE_SEMTECH_DEFAULT_CHANNEL_LINEUP          0
 
-#if( USE_SEMTECH_DEFAULT_CHANNEL_LINEUP == 1 ) 
+#if( USE_SEMTECH_DEFAULT_CHANNEL_LINEUP == 1 )
 
 #define LC4                { 867100000, 0, { ( ( DR_5 << 4 ) | DR_0 ) }, 0 }
 #define LC5                { 867300000, 0, { ( ( DR_5 << 4 ) | DR_0 ) }, 0 }
@@ -222,7 +222,7 @@ static bool SendFrame( void )
 {
     McpsReq_t mcpsReq;
     LoRaMacTxInfo_t txInfo;
-    
+
     if( LoRaMacQueryTxPossible( AppData.BuffSize, &txInfo ) != LORAMAC_STATUS_OK )
     {
         // Send empty frame in order to flush MAC commands
@@ -398,7 +398,7 @@ static void McpsIndication( McpsIndication_t *mcpsIndication )
                     ComplianceTest.NbGateways = 0;
                     ComplianceTest.Running = true;
                     ComplianceTest.State = 1;
-                    
+
                     MibRequestConfirm_t mibReq;
                     mibReq.Type = MIB_ADR;
                     mibReq.Param.AdrEnable = true;
@@ -417,7 +417,7 @@ static void McpsIndication( McpsIndication_t *mcpsIndication )
                 case 0: // Check compliance test disable command (ii)
                     ComplianceTest.DownLinkCounter = 0;
                     ComplianceTest.Running = false;
-                    
+
                     MibRequestConfirm_t mibReq;
                     mibReq.Type = MIB_ADR;
                     mibReq.Param.AdrEnable = LoRaParamInit->AdrEnable;
@@ -490,17 +490,17 @@ static void McpsIndication( McpsIndication_t *mcpsIndication )
                         ComplianceTest.State = 1;
                     }
                     break;
-                default:                  
+                default:
                   break;
                 }
             }
             break;
         default:
-            
+
             AppData.Port = mcpsIndication->Port;
             AppData.BuffSize = mcpsIndication->BufferSize;
             memcpy1( AppData.Buff, mcpsIndication->Buffer, AppData.BuffSize );
-            
+
             LoRaMainCallbacks->LoraRxData( &AppData );
             break;
         }
@@ -558,7 +558,7 @@ void lora_Init (LoRaMainCallback_t *callbacks, LoRaParam_t* LoRaParam )
 {
   /* init the DeviceState*/
   DeviceState= DEVICE_STATE_INIT;
-  
+
   /* init the Tx Duty Cycle*/
   LoRaParamInit = LoRaParam;
   
@@ -571,7 +571,7 @@ void lora_Init (LoRaMainCallback_t *callbacks, LoRaParam_t* LoRaParam )
   
 #if( OVER_THE_AIR_ACTIVATION != 0 )
 
-  PRINTF("OTAA\n\r"); 
+  PRINTF("OTAA\n\r");
   PRINTF("DevEui= %02X", DevEui[0]) ;for(int i=1; i<8 ; i++) {PRINTF("-%02X", DevEui[i]); }; PRINTF("\n\r");
   PRINTF("AppEui= %02X", AppEui[0]) ;for(int i=1; i<8 ; i++) {PRINTF("-%02X", AppEui[i]); }; PRINTF("\n\r");
   PRINTF("AppKey= %02X", AppKey[0]) ;for(int i=1; i<16; i++) {PRINTF(" %02X", AppKey[i]); }; PRINTF("\n\n\r");
@@ -583,7 +583,7 @@ void lora_Init (LoRaMainCallback_t *callbacks, LoRaParam_t* LoRaParam )
   // Choose a random device address
   DevAddr = randr( 0, 0x01FFFFFF );
 #endif
-  PRINTF("ABP\n\r"); 
+  PRINTF("ABP\n\r");
   PRINTF("DevEui= %02X", DevEui[0]) ;for(int i=1; i<8 ; i++) {PRINTF("-%02X", DevEui[i]); }; PRINTF("\n\r");
   PRINTF("DevAdd=  %08X\n\r", DevAddr) ;
   PRINTF("NwkSKey= %02X", NwkSKey[0]) ;for(int i=1; i<16 ; i++) {PRINTF(" %02X", NwkSKey[i]); }; PRINTF("\n\r");
@@ -631,7 +631,7 @@ void lora_fsm( void)
 #endif
 
         TimerInit( &TxNextPacketTimer, OnTxNextPacketTimerEvent );
-        
+
         mibReq.Type = MIB_ADR;
         mibReq.Param.AdrEnable = LoRaParamInit->AdrEnable;
         LoRaMacMibSetRequestConfirm( &mibReq );
@@ -639,7 +639,7 @@ void lora_fsm( void)
         mibReq.Type = MIB_PUBLIC_NETWORK;
         mibReq.Param.EnablePublicNetwork = LoRaParamInit->EnablePublicNetwork;
         LoRaMacMibSetRequestConfirm( &mibReq );
-                        
+
         mibReq.Type = MIB_DEVICE_CLASS;
         mibReq.Param.Class= LoRaParamInit->Class;
         LoRaMacMibSetRequestConfirm( &mibReq );
@@ -647,7 +647,7 @@ void lora_fsm( void)
 #if defined( REGION_EU868 )
                 LoRaMacTestSetDutyCycleOn( LORAWAN_DUTYCYCLE_ON );
 
-#if( USE_SEMTECH_DEFAULT_CHANNEL_LINEUP == 1 ) 
+#if( USE_SEMTECH_DEFAULT_CHANNEL_LINEUP == 1 )
                 LoRaMacChannelAdd( 3, ( ChannelParams_t )LC4 );
                 LoRaMacChannelAdd( 4, ( ChannelParams_t )LC5 );
                 LoRaMacChannelAdd( 5, ( ChannelParams_t )LC6 );
@@ -669,7 +669,7 @@ void lora_fsm( void)
     {
 #if( OVER_THE_AIR_ACTIVATION != 0 )
       MlmeReq_t mlmeReq;
-    
+
       mlmeReq.Type = MLME_JOIN;
       mlmeReq.Req.Join.DevEui = DevEui;
       mlmeReq.Req.Join.AppEui = AppEui;
@@ -755,6 +755,7 @@ DeviceState_t lora_getDeviceState( void )
 {
   return DeviceState;
 }
+
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 

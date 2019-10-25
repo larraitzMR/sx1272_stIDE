@@ -29,7 +29,7 @@ Lora/Phy/sx1272/sx1272.o: ../Lora/Phy/sx1272/sx1272.c ../Inc/hw.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Inc/hw_gpio.h ../Inc/hw_spi.h ../Inc/hw_rtc.h \
  ../Lora/Utilities/utilities.h ../Inc/includes.h ../Inc/config.h \
- ../Inc/gpio.h ../Inc/debug.h ../Inc/includes.h ../Lora/Phy/radio.h \
+ ../Inc/debug.h ../Inc/includes.h ../Lora/Phy/radio.h \
  ../Lora/Phy/sx1272/sx1272.h ../Lora/Phy/sx1272/sx1272Regs-Fsk.h \
  ../Lora/Phy/sx1272/sx1272Regs-LoRa.h ../Lora/Utilities/timeServer.h \
  ../Lora/Utilities/utilities.h
@@ -103,8 +103,6 @@ Lora/Phy/sx1272/sx1272.o: ../Lora/Phy/sx1272/sx1272.c ../Inc/hw.h \
 ../Inc/includes.h:
 
 ../Inc/config.h:
-
-../Inc/gpio.h:
 
 ../Inc/debug.h:
 
